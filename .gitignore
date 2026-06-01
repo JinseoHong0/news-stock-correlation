@@ -9,7 +9,5 @@
 /dataSources/
 /dataSources.local.xml
 
-data/raw/**/*.csv
-
-# .gitkeep은 예외
-!data/raw/**/.gitkeep
+.idea/
+**/ *.csv
