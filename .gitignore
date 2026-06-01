@@ -10,4 +10,4 @@
 /dataSources.local.xml
 
 .idea/
-**/ *.csv
+**/*.csv
