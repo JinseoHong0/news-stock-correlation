@@ -1,7 +1,7 @@
 import pandas as pd
 from datasets import load_dataset
 
-ds = load_dataset("klue/klue", "ynat")
+ds = load_dataset("klue", "ynat")
 
 df = pd.concat([ds['train'].to_pandas(), ds['validation'].to_pandas()], ignore_index=True)
 
