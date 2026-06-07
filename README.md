@@ -36,7 +36,7 @@
 | KOSPI/KOSDAQ 종목 주가 | FinanceDataReader | 종목별 분할 수집 | 2016~2020 | 약 239만 행 |
 | KOSPI/KOSDAQ 지수 | FinanceDataReader | 스크립트 | 2016~2020 | KOSPI_16to20.csv / KOSDAQ_16to20.csv |
 
-> **수집 환경**: KRX가 클라우드/데이터센터 IP를 차단(403 Forbidden)하므로 데이터 수집은 로컬(가정용 IP)에서 수행 후 Sandbox에 업로드. 교수님 확인 완료.
+> **수집 환경**: KRX가 클라우드/데이터센터 IP를 차단하므로 데이터 수집은 로컬에서 수행 후 Sandbox에 업로드.
 
 ---
 
