@@ -1,0 +1,6 @@
+finance-datareader==0.9.94
+beautifulsoup4==4.12.3
+lxml==5.4.0
+datasets==2.4.0
+pandas==1.1.5
+plotly==5.18.0
