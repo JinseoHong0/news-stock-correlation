@@ -57,7 +57,7 @@ TBLPROPERTIES ("skip.header.line.count"="1");
 
 -- [분석 질문 1] 주간 뉴스 감성과  지수 변동의 상관
 INSERT OVERWRITE DIRECTORY '/user/maria_dev/news-stock/result/q1_market'
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
 SELECT
     market,
     COUNT(week_key),
@@ -67,7 +67,7 @@ GROUP BY market;
 
 -- [분석 질문 2] 카테고리별 뉴스 감성과 수익률 상관 
 INSERT OVERWRITE DIRECTORY '/user/maria_dev/news-stock/result/q2_category'
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
 SELECT
     category,
     COUNT(week_key),
@@ -86,11 +86,11 @@ ORDER BY ABS(correlation_coefficient) DESC;
 
 --양의 상관
 INSERT OVERWRITE DIRECTORY '/user/maria_dev/news-stock/result/q3_positive'
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
 SELECT
     code,
     name,
-    industry,
+    regexp_replace(industry,'"',''),
     market,
     COUNT(week_key),
     CORR(avg_sentiment, stock_return) AS correlation_coefficient
@@ -102,7 +102,7 @@ LIMIT 20;
 
 --음의 상관
 INSERT OVERWRITE DIRECTORY '/user/maria_dev/news-stock/result/q3_negative'
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
 SELECT
     code,
     name,

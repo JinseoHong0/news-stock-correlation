@@ -9,6 +9,15 @@
 /dataSources/
 /dataSources.local.xml
 
+
+# 시스템 및 체크섬 파일 무시
+*.crc
+.*.crc
+
+# Vim 에디터 임시 스왑 파일 무시
+*.swp
+.*.swp
+
 .idea/
 **/*.csv
 res_hive.txt
