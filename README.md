@@ -45,6 +45,7 @@
 ```
 news-stock-correlation/
 ├── README.md
+├── charts                        # 최종 시각화 html 저장
 ├── requirements.txt              # 수집 환경 의존성 (Python 3.x)
 ├── run_ingest.sh                 # 데이터 수집 자동화 (로컬 실행)
 ├── run_pipeline.sh               # 전처리→분석→시각화 자동화 (Sandbox 실행)
@@ -107,8 +108,11 @@ news-stock-correlation/
 
 **직접 수집**
 # 수집 실행 (KRX 클라우드 차단으로 반드시 로컬에서)
+'''
+bash
+pip install -r requirements.txt
 bash run_ingest.sh
-
+'''
 
 ### 2단계 — Sandbox로 데이터 전송
 
@@ -145,8 +149,9 @@ hdfs dfs -du -h /user/maria_dev/news-stock/
 
 ### 4단계 — 파이프라인 실행 (Sandbox에서)
 
-```bash
-cd ~/news-stock-correlation
+```
+bash cd ~/news-stock-correlation
+bash pip3.6 install --user -r requirements.txt
 bash run_pipeline.sh
 ```
 
@@ -172,7 +177,16 @@ charts/q3_negative.html     역행 종목 Top 20
 charts/q3_market_dist.html  Top 20의 KOSPI/KOSDAQ 분포
 ```
 
-브라우저에서 HTML 파일 직접 열기.
+
+새 터미널 열어서 차트 html 로컬로 가져오기
+# 1. 컨테이너에서 VM으로
+ssh -i ~/gcp/gcptutorial <사용자>@<VM-IP> "sudo docker cp sandbox-hdp:/home/maria_dev/news-stock-correlation/charts ~/charts_new"
+
+# 2. VM에서 로컬로
+scp -i ~/gcp/gcptutorial -r <사용자>@<VM-IP>:~/charts_new ~/Desktop/charts
+
+
+> 위 방법이 경로 설정 문제상 실행되지 않을 경우에 대비하여 charts/ 폴더에 사전 생성된 차트가 포함되어 있으나, run_pipeline.sh 실행 시 새로 생성됩니다.
 
 ---
 
