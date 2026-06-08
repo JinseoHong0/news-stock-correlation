@@ -231,7 +231,7 @@ scp -i ~/gcp/gcptutorial -r <사용자>@<VM-IP>:~/charts_new ~/Desktop/charts
 ## 참고 자료
 
 - KNU 한국어 감성사전: https://github.com/park1200656/KnuSentiLex
-- KLUE 벤치마크: https://klue-benchmark.com
+- KLUE-YNAT: https://huggingface.co/datasets/klue/klue (config: ynat)
 - FinanceDataReader: https://github.com/FinanceData/FinanceDataReader
 - Apache Spark DataFrame API: https://spark.apache.org/docs/latest/sql-programming-guide.html
 - Apache Hive UDF (CORR): https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
