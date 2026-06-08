@@ -81,14 +81,24 @@ print("지수 주별 수익률 샘플:")
 weekly_index.orderBy("week_key").show(5)
 
 # 종목명+업종 매핑 테이블
-def load_list(filename):
-    df = spark.read.csv("{}/stock_list/{}".format(HDFS, filename),
+def load_desc(market):
+    df = spark.read.csv("{}/stock_list/{}_DESC.csv".format(HDFS, market),
                         header="true", inferSchema="true").select("Code", "Name", "Industry")
-    # Code를 6자리 문자열로 통일 (조인 키 일치용)
     return df.withColumn("Code", F.lpad(F.col("Code").cast("string"), 6, "0"))
 
-names = load_list("KOSPI_DESC.csv").union(load_list("KOSDAQ_DESC.csv"))
+def load_list_fallback(market):
+    df = spark.read.csv("{}/stock_list/{}_list.csv".format(HDFS, market),
+                        header="true", inferSchema="true").select("Code", "Name")
+    df = df.withColumn("Code", F.lpad(F.col("Code").cast("string"), 6, "0"))
+    return df.withColumn("Industry", F.lit(None).cast("string"))
 
+def load_names(market):
+    desc = load_desc(market)
+    lst  = load_list_fallback(market)
+    missing = lst.join(desc.select("Code"), on="Code", how="left_anti")
+    return desc.union(missing)
+
+names = load_names("KOSPI").union(load_names("KOSDAQ"))
 
 
 # 2.  뉴스 처리 (날짜 파싱, 카테고리 필터, 감성점수)
