@@ -212,12 +212,18 @@ charts/q3_market_dist.html  Top 20의 KOSPI/KOSDAQ 분포
 
 ---
 
-## 한계 및 고려사항
+## 한계
 
 - 감성점수는 공백 분리 정확 매칭 방식 (형태소 분석 미적용) → 조사·어미로 인한 미매칭 존재
 - 전체 뉴스 기반 감성 (종목 단위 뉴스 아님) → 개별 종목과의 직접 인과 해석 유보
 - 데이터 규모 156MB — 빅데이터 규모는 아니나, 확장 가능한 분산처리 파이프라인 구조로 설계
 - 상관관계 분석이며 인과관계를 주장하지 않음
+
+## 확장 방향
+- 단순한 감성 사전이 아닌 KoNLPy 형태소 분석 적용 → 조사·어미 미매칭 문제 직접 해결
+- Kafka 연동 실시간 감성 스트리밍으로 시의성 있는 분석 추가 -> 실시간 뉴스와 주가 수집으로 더 많은 데이터를 시의성 있게 수집
+- 추가로 종목별 뉴스 크롤링 → 전체 뉴스 기반 한계 해결
+
 
 ---
 
@@ -234,3 +240,4 @@ charts/q3_market_dist.html  Top 20의 KOSPI/KOSDAQ 분포
 - FinanceDataReader: https://github.com/FinanceData/FinanceDataReader
 - Apache Spark DataFrame API: https://spark.apache.org/docs/latest/sql-programming-guide.html
 - Apache Hive UDF (CORR): https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
+- Plotly : https://plotly.com/examples/](https://plotly.com/python/getting-started/
