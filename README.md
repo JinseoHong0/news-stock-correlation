@@ -107,7 +107,7 @@ news-stock-correlation/
 ### 1단계 — 데이터 준비 (로컬에서)
 
 **직접 수집**
-# 수집 실행 (KRX 클라우드 차단으로 반드시 로컬에서)
+수집 실행 (KRX 클라우드 차단으로 반드시 로컬에서)
 ```bash
 pip install -r requirements.txt
 bash run_ingest.sh
