@@ -23,7 +23,7 @@
 분석           Apache Hive (HiveQL, CORR 함수)
 시각화         Plotly (HTML 차트)
 자동화         Shell Script (run_pipeline.sh)
-실행 환경      HDP Sandbox (Python 3.6 / Spark 2.x / Hive 3.1 / CentOS 7)
+실행 환경      HDP Sandbox (Python 3.6.5 / Spark 2.3.1 / Hive 3.1.0 / CentOS 7)
 ```
 
 ---
@@ -221,7 +221,7 @@ charts/q3_market_dist.html  Top 20의 KOSPI/KOSDAQ 분포
 
 ## 확장 방향
 - 단순한 감성 사전이 아닌 KoNLPy 형태소 분석 적용 → 조사·어미 미매칭 문제 직접 해결
-- Kafka 연동 실시간 감성 스트리밍으로 시의성 있는 분석 추가 -> 실시간 뉴스와 주가 수집으로 더 많은 데이터를 시의성 있게 수집
+- Kafka 연동 실시간 감성 스트리밍으로 더 많은 데이터를 시의성 있게 분석에 추가
 - 추가로 종목별 뉴스 크롤링 → 전체 뉴스 기반 한계 해결
 
 
@@ -240,4 +240,4 @@ charts/q3_market_dist.html  Top 20의 KOSPI/KOSDAQ 분포
 - FinanceDataReader: https://github.com/FinanceData/FinanceDataReader
 - Apache Spark DataFrame API: https://spark.apache.org/docs/latest/sql-programming-guide.html
 - Apache Hive UDF (CORR): https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
-- Plotly : https://plotly.com/examples/](https://plotly.com/python/getting-started/
+- Plotly : https://plotly.com/python/getting-started/
