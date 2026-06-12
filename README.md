@@ -109,8 +109,7 @@ news-stock-correlation/
 **직접 수집**
 # 수집 실행 (KRX 클라우드 차단으로 반드시 로컬에서)
 '''
-bash
-pip install -r requirements.txt
+bash pip install -r requirements.txt
 bash run_ingest.sh
 '''
 
@@ -180,7 +179,7 @@ charts/q3_market_dist.html  Top 20의 KOSPI/KOSDAQ 분포
 
 새 터미널 열어서 차트 html 로컬로 가져오기
 # 1. 컨테이너에서 VM으로
-ssh -i ~/gcp/gcptutorial <사용자>@<VM-IP> "sudo docker cp sandbox-hdp:/home/maria_dev/news-stock-correlation/charts ~/charts_new"
+ssh -i ~/gcp/gcptutorial <사용자>@<IP> "sudo docker cp sandbox-hdp:/home/maria_dev/news-stock-correlation/charts ~/charts_new"
 
 # 2. VM에서 로컬로
 scp -i ~/gcp/gcptutorial -r <사용자>@<VM-IP>:~/charts_new ~/Desktop/charts
