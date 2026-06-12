@@ -111,6 +111,7 @@ news-stock-correlation/
 ```bash
 pip install -r requirements.txt
 bash run_ingest.sh
+```
 
 ### 2단계 — Sandbox로 데이터 전송
 
@@ -181,7 +182,7 @@ charts/q3_market_dist.html  Top 20의 KOSPI/KOSDAQ 분포
 `ssh -i ~/gcp/gcptutorial <사용자>@<IP> "sudo docker cp sandbox-hdp:/home/maria_dev/news-stock-correlation/charts ~/charts_new"`
 
 # 2. VM에서 로컬로
-scp -i ~/gcp/gcptutorial -r <사용자>@<VM-IP>:~/charts_new ~/Desktop/charts
+`scp -i ~/gcp/gcptutorial -r <사용자>@<VM-IP>:~/charts_new ~/Desktop/charts`
 
 
 > 위 방법이 경로 설정 문제상 실행되지 않을 경우에 대비하여 charts/ 폴더에 사전 생성된 차트가 포함되어 있으나, run_pipeline.sh 실행 시 새로 생성됩니다.
